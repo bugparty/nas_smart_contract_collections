@@ -21,6 +21,8 @@
 （期待有好人真的给合约打钱）
 addBottle函数可以部分传参 content, [nickname, city]
 
+合约testnet地址n1nrB7eVyjDBNMJHYrq2YVARThu9xuNXp4s
+
 */
 var Bottle = function (text) {
   if (text) {
