@@ -24,8 +24,10 @@ https://incentive.nebulas.io/signup.html?invite=9rX6a
 
  部署合约要注意的事情，
  有些合约部署时需要填上发布者的地址，用于日后从合约取钱
-https://github.com/bugparty/nas_smart_contract_collections
+
+
  ![具体部署示例](https://raw.githubusercontent.com/bugparty/nas_smart_contract_collections/master/res/deploy_contract.png)
+ 
  REGISTER WITH MY LINK License
  Permission is hereby granted, free of charge, to any person obtaining
   a copy of this software and associated documentation files (the "Software"),
