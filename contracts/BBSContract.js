@@ -111,7 +111,14 @@ var BBSContract = function() {
     LocalContractStorage.defineProperty(this, "hotTopicCache");
     LocalContractStorage.defineProperty(this, "hotTopic");
 
-    LocalContractStorage.defineProperty(this, "taxNas");
+    LocalContractStorage.defineProperty(this, "taxNas", {
+        stringify: function(obj) {
+            return obj.toString();
+        },
+        parse: function(str) {
+            return new BigNumber(str);
+        }
+    });
 
     LocalContractStorage.defineProperty(this, "config");
     LocalContractStorage.defineProperty(this, "adsList");
@@ -149,7 +156,7 @@ BBSContract.prototype = {
         this.adsList = [
             //{"name":"","href":"","img":""}
         ]
-        this.taxNas = 0
+        this.taxNas = new BigNumber(0)
     },
 
     addCategory: function(category) {
@@ -1085,7 +1092,8 @@ BBSContract.prototype = {
 
         this.donateInfo.set(txhash, donateDetail)
 
-        this.taxNas += value - transferValue
+        // this.taxNas += value - transferValue
+        this.taxNas = this.taxNas.plus(value - transferValue)
 
         // 我打赏的
         var donateNums = this.donateNums.get(fromUser) * 1
@@ -1201,7 +1209,8 @@ BBSContract.prototype = {
         if (!userBalance) {
             userBalance = new BigNumber(0)
         }
-        this.taxNas += value
+        // this.taxNas += value
+        this.taxNas = this.taxNas.plus(value)
 
         this.userBalance.set(fromUser, userBalance.plus(value))
     },
